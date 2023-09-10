@@ -3,4 +3,5 @@ simple website on cars
 download index.html and car_financing_calculator.html  
 index.html is the main file, which should be run   
 the pictures are only for references and need not be download  
-hosted website-https://websitecars.w3spaces.com/
+hosted website-https://websitecars.w3spaces.com/   
+read the about page for information on the website
