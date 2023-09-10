@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage on cars</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAEAEA;
+        }
+
+        header {
+            background-color: #B0E0E6;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #3498DB;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        main {
+            padding: 20px;
+	    background-color: #CCCCCC;        
+	}
+
+        footer {
+            background-color: #3498DB;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+        }
+        
+        .slideshow-container img {
+            width: 60%;
+            height: auto;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .slideshow-container img:first-child {
+            display: block;
+        }
+	#feedbackForm {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        #feedbackForm label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #feedbackForm input[type="text"],
+        #feedbackForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #feedbackForm button {
+            background-color: #3498DB;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Website on Cars</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showLoginForm()">Login</a></li>
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="car_financing_calculator.html">Car Financing Calculator</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('porsche')">Porsche</a></li>
+            <li><a href="#" onclick="showPage('ferrari')">Ferrari</a></li>
+            <li><a href="#" onclick="showPage('lamborghini')">Lamborghini</a></li>
+
+            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            <li><a href="#" onclick="showFeedbackForm()">Feedback</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+                <div id="loginPage" style="display: none;">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return login()">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+                    <h4>For admin access-username:admin,password:admin</h4>
+                    <h4>For user access-username:user,password:user</h4>
+        </div>
+        <div id="homePage">
+            <h2>Home Page</h2>
+            <h4>This website gives information about a few different sports cars</h4>
+            <div class="slideshow-container">
+                <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20200303081154_2020-Porsche-911-Turbo-S-to.jpg&w=700&q=90&c=1" alt="Porsche image">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWrDflhTKNqyCyPeoSGe2OOP4eQIQQmDsyhUHBGB6XnyRZIguD" alt="Ferrari image">
+                <img src="https://www.topgear.com/sites/default/files/2021/07/588405.JPG?w=976&h=549" alt="Lambo image">
+            </div>
+        </div>
+
+        <div id="aboutPage" style="display: none;">
+            <h2>About Us</h2>
+            <h4>learn more about our website here</h4>
+            <p>Interactive features on this website:
+            <ol>
+            <li>slideshow on home page</li>
+            <li>navigation bar</li>
+            <li>car finance calculator</li>
+            <li>feedback form(doesn't work propely on some browsers)</li>
+            <li>information replaced by just placeholders on pages</li>
+        </ol>
+            </p>
+        </div>
+
+        <div id="porschePage" style="display: none;">
+            <h2>Porsche</h2>
+            <p>Information about Porsche cars.</p>
+        </div>
+
+        <div id="ferrariPage" style="display: none;">
+            <h2>Ferrari</h2>
+            <p>Information about Ferrari cars.</p>
+        </div>
+
+        <div id="lamborghiniPage" style="display: none;">
+            <h2>Lamborghini</h2>
+            <p>Information about Lamborghini cars.</p>
+        </div>
+
+        <div id="contactPage" style="display: none;">
+            <h2>Contact Us</h2>
+            <p>Contact information goes here.</p>
+        </div>
+
+        <div id="feedbackPage" style="display: none;">
+            <h2>Feedback Form</h2>
+            <form id="feedbackForm" action="#" method="post">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Feedback:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        Example of a website
+    </footer>
+
+    <script>
+
+        function showPage(pageId) {
+
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('aboutPage').style.display = 'none';
+            document.getElementById('porschePage').style.display = 'none';
+            document.getElementById('ferrariPage').style.display = 'none';
+            document.getElementById('lamborghiniPage').style.display = 'none';
+            document.getElementById('contactPage').style.display = 'none';
+
+
+            document.getElementById(pageId + 'Page').style.display = 'block';
+        }
+        function showFeedbackForm() {
+
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('aboutPage').style.display = 'none';
+            document.getElementById('porschePage').style.display = 'none';
+            document.getElementById('ferrariPage').style.display = 'none';
+            document.getElementById('lamborghiniPage').style.display = 'none';
+            document.getElementById('contactPage').style.display = 'none';
+
+
+            document.getElementById('feedbackPage').style.display = 'block';
+        }				
+
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slideshow-container img');
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = 'block';
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+	 showSlides();
+	
+	document.querySelector('a[href="#"]').addEventListener('click', showFeedbackForm);
+
+    function showLoginForm() {
+
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('aboutPage').style.display = 'none';
+            document.getElementById('porschePage').style.display = 'none';
+            document.getElementById('ferrariPage').style.display = 'none';
+            document.getElementById('lamborghiniPage').style.display = 'none';
+            document.getElementById('contactPage').style.display = 'none';
+            document.getElementById('feedbackPage').style.display = 'none';
+
+
+            document.getElementById('loginPage').style.display = 'block';
+        }
+
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+
+
+            if (username === 'admin' && password === 'admin') {
+                alert('Logged in as Admin');
+
+                return true;
+            } else if (username === 'user' && password === 'user') {
+                alert('Logged in as User');
+
+                return true;
+            } else {
+                alert('Invalid username or password');
+                return false; 
+            }
+        }
+
+    </script>
+</body>
+</html>

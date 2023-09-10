@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Financing Calculator</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAEAEA;
+        }
+
+        header {
+            background-color: #B0E0E6;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #CCCCCC;
+        }
+
+        footer {
+            background-color: #3498DB;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #3498DB;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Car Financing Calculator</h1>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>Loan Details</h2>
+            <form id="financingCalculator">
+                <label for="loanAmount">Loan Amount:</label>
+                <input type="number" id="loanAmount" name="loanAmount" required>
+
+                <label for="interestRate">Interest Rate (%):</label>
+                <input type="number" id="interestRate" name="interestRate" required>
+
+                <label for="loanTerm">Loan Term (months):</label>
+                <input type="number" id="loanTerm" name="loanTerm" required>
+
+                <button type="submit">Calculate Monthly Payment</button>
+            </form>
+
+            <div id="result"></div>
+        </div>
+    </main>
+
+    <footer>
+        Example of a Car Financing Calculator
+    </footer>
+
+    <script>
+        document.getElementById("financingCalculator").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+
+            const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+            const interestRate = parseFloat(document.getElementById("interestRate").value);
+            const loanTerm = parseFloat(document.getElementById("loanTerm").value);
+
+
+            const monthlyInterestRate = (interestRate / 100) / 12;
+            const monthlyPayment = (loanAmount * monthlyInterestRate) /
+                (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
+
+          
+            document.getElementById("result").textContent = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
